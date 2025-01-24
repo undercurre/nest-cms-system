@@ -14,6 +14,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'mova_cms_mysql',
+      // host: 'localhost',
       port: 3306,
       username: 'root',
       password: '123456',
@@ -41,3 +42,4 @@ export class AppModule {
       .forRoutes({ path: '*', method: RequestMethod.ALL }); // 对所有路由生效
   }
 }
+  
