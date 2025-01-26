@@ -32,6 +32,7 @@ export class ProductService {
     id: number,
     updateProductDto: UpdateProductDto,
   ): Promise<Product> {
+    console.log('updating', id, typeof id, updateProductDto);
     const product = await this.productRepository.preload({
       id,
       ...updateProductDto,
