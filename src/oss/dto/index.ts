@@ -1,3 +1,3 @@
 export class SignatureDto {
-  fileType: 'image' | 'pdf';
+  fileType: 'image' | 'pdf' | 'mp4';
 }

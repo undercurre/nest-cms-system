@@ -9,6 +9,11 @@ import { LogMiddleware } from './middleware/log.middleware';
 import { TransformInterceptor } from './interceptor/transform.interceptor';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { OssModule } from './oss/oss.module';
+import { CookbookModule } from './cookbook/cookbook.module';
+import { GuideModule } from './guide/guide.module';
+import { IngredientsModule } from './ingredients/ingredients.module';
+import { StepsModule } from './steps/steps.module';
+import { DeepseekModule } from './deepseek/deepseek.module';
 
 @Module({
   imports: [
@@ -27,6 +32,11 @@ import { OssModule } from './oss/oss.module';
     ProductsModule,
     ConsumableModule,
     OssModule,
+    CookbookModule,
+    GuideModule,
+    IngredientsModule,
+    StepsModule,
+    DeepseekModule,
   ],
   controllers: [AppController],
   providers: [

@@ -4,11 +4,9 @@ import * as dayjs from 'dayjs';
 
 @Injectable()
 export class OssService {
-  async getSignature(fileType: 'image' | 'pdf') {
+  async getSignature(fileType: 'image' | 'pdf' | 'mp4') {
     const config = {
       // 填写你自己的 AccessKey
-      accessKeyId: '',
-      accessKeySecret: '',
       // 存储桶名字
       bucket: 'mova-cms',
       // 文件存储路径
