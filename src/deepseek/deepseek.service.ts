@@ -12,9 +12,11 @@ export class DeepseekService {
     });
   }
 
-  async getCompletion(content: string): Promise<string> {
+  async getCompletion(
+    messages: { role: any; content: string; name?: string }[],
+  ): Promise<string> {
     const completion = await this.openai.chat.completions.create({
-      messages: [{ role: 'user', content: content }],
+      messages,
       model: 'deepseek-chat',
     });
 

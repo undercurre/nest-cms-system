@@ -8,6 +8,6 @@ export class DeepseekController {
 
   @Post('completion')
   async getCompletion(@Body() askQuestionDto: AskQuestionDto): Promise<string> {
-    return this.deepseekService.getCompletion(askQuestionDto.content);
+    return this.deepseekService.getCompletion(JSON.parse(askQuestionDto.json));
   }
 }
