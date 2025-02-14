@@ -73,6 +73,28 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
+  async updatePass(
+    id: number,
+    oldPass: string,
+    newPass: string,
+  ): Promise<User> {
+    const oldUser = await this.userRepository.findOne({ where: { id } });
+    if (!oldUser) {
+      throw new UnauthorizedException('User not found');
+    }
+
+    const isMatch = await bcrypt.compare(oldPass, oldUser.password);
+    if (!isMatch) {
+      throw new UnauthorizedException('Invalid password');
+    }
+    const hashedNewPassword = await bcrypt.hash(newPass, 10);
+    const newUser = await this.userRepository.preload({
+      id,
+      password: hashedNewPassword,
+    });
+    return this.userRepository.save(newUser);
+  }
+
   async remove(id: number): Promise<void> {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {

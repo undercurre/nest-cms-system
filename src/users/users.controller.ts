@@ -45,6 +45,18 @@ export class UserController {
     return this.userService.update(Number(id), updateUserDto);
   }
 
+  @Patch('pass/:id')
+  async updatePass(
+    @Param('id') id: string,
+    @Body() updateUserDto: { oldPass: string; newPass: string },
+  ) {
+    return this.userService.updatePass(
+      Number(id),
+      updateUserDto.oldPass,
+      updateUserDto.newPass,
+    );
+  }
+
   @Delete(':id')
   async remove(@Param('id') id: number) {
     return this.userService.remove(id);
