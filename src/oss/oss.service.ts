@@ -7,6 +7,7 @@ export class OssService {
   async getSignature(fileType: 'image' | 'pdf' | 'mp4') {
     const config = {
       // 填写你自己的 AccessKey
+
       // 存储桶名字
       bucket: 'mova-cms',
       // 文件存储路径
@@ -32,7 +33,7 @@ export class OssService {
 
     // 生成 bucket 域名，客户端将向此地址发送请求
     const location = await client.getBucketLocation();
-    const host = `http://${config.bucket}.${location.location}.aliyuncs.com`;
+    const host = `https://${config.bucket}.${location.location}.aliyuncs.com`;
 
     // 响应给客户端的签名和策略等信息
     return {
