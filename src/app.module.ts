@@ -19,8 +19,8 @@ import { DeepseekModule } from './deepseek/deepseek.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'mova_cms_mysql',
-      // host: 'localhost',
+      // host: 'mova_cms_mysql',
+      host: 'localhost',
       port: 3306,
       username: 'root',
       password: '123456',

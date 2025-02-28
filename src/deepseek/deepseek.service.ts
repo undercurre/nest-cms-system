@@ -7,8 +7,8 @@ export class DeepseekService {
 
   constructor() {
     this.openai = new OpenAI({
-      baseURL: 'https://api.deepseek.com',
-      apiKey: 'sk-0416af374cfd4368964cc830685ef2d5', // 替换为你的 DeepSeek API Key
+      baseURL: 'https://one.devgaoy.cn/v1',
+      apiKey: 'sk-GWhrMtZcPHGlfiemlLbiVGVlFGU8FcER2RUNq6Hf1iXJHIXM', // 替换为你的 DeepSeek API Key
     });
   }
 
@@ -21,5 +21,15 @@ export class DeepseekService {
     });
 
     return completion.choices[0].message.content;
+  }
+
+  async getAiStream(messages: { role: any; content: string; name?: string }[]) {
+    const completion = await this.openai.chat.completions.create({
+      messages,
+      model: 'deepseek-v3',
+      stream: true,
+    });
+
+    return completion;
   }
 }
