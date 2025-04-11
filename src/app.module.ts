@@ -2,41 +2,32 @@ import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
-import { ProductsModule } from './products/products.module';
 import { ConsumableModule } from './consumable/consumable.module';
 import { LogMiddleware } from './middleware/log.middleware';
 import { TransformInterceptor } from './interceptor/transform.interceptor';
 import { APP_INTERCEPTOR } from '@nestjs/core';
-import { OssModule } from './oss/oss.module';
 import { CookbookModule } from './cookbook/cookbook.module';
 import { GuideModule } from './guide/guide.module';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { StepsModule } from './steps/steps.module';
-import { DeepseekModule } from './deepseek/deepseek.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      // host: 'mova_cms_mysql',
-      host: 'localhost',
+      host: '172.27.65.66',
       port: 3306,
       username: 'root',
-      password: '123456',
-      database: 'mova_cms',
+      password: 'admin123',
+      database: 'kitchen_cms',
       autoLoadEntities: true,
       synchronize: true, // 开发环境下使用，生产环境建议禁用
     }),
-    UsersModule,
-    ProductsModule,
     ConsumableModule,
-    OssModule,
     CookbookModule,
     GuideModule,
     IngredientsModule,
     StepsModule,
-    DeepseekModule,
   ],
   controllers: [AppController],
   providers: [

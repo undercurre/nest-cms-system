@@ -1,4 +1,3 @@
-import { Product } from 'src/products/entities/product.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
@@ -21,6 +20,6 @@ export class Consumable {
   @Column({ nullable: true })
   productLink: string; // 耗材的产品链接
 
-  @ManyToOne(() => Product, (product) => product.consumables)
-  product: Product; // 关联的产品
+  @Column()
+  productId: number; // 关联的产品
 }
