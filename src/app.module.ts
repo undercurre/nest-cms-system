@@ -15,11 +15,11 @@ import { StepsModule } from './steps/steps.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '172.27.65.66',
+      host: 'pc-uf6ri5js2i54u4jx9.mysql.polardb.rds.aliyuncs.com',
       port: 3306,
-      username: 'root',
-      password: 'admin123',
-      database: 'kitchen_cms',
+      username: 'mova_uat',
+      password: '^ey6Dq=V6hq@L3w',
+      database: 'mova_kitchen',
       autoLoadEntities: true,
       synchronize: true, // 开发环境下使用，生产环境建议禁用
     }),

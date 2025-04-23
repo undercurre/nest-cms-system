@@ -20,7 +20,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  app.setGlobalPrefix('web/cms/mova-cms');
+  app.setGlobalPrefix('mova-cms');
 
   await app.listen(process.env.PORT ?? 4000);
 }

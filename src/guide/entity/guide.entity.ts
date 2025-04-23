@@ -16,8 +16,14 @@ export class Guide {
   @Column({ type: 'varchar', length: 50 })
   title: string; // 名字
 
+  @Column({ type: 'varchar', length: 50 })
+  title_en: string; // 名字
+
   @Column({ type: 'text' })
   description: string; // 描述
+
+  @Column({ type: 'text' })
+  description_en: string; // 描述
 
   @CreateDateColumn()
   createdAt: Date; // 创建时间

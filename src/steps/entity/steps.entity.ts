@@ -18,6 +18,9 @@ export class Step {
   @Column({ type: 'text' })
   description: string; // 步骤描述
 
+  @Column({ type: 'text' })
+  description_en: string; // 步骤描述
+
   @Column({ type: 'varchar', length: 255, nullable: true })
   image_url: string | null; // 步骤图片URL（如果有）
 

@@ -20,6 +20,14 @@ export class CreateCookbookDto {
   @IsNotEmpty()
   description: string;
 
+  @IsString()
+  @IsNotEmpty()
+  name_en: string;
+
+  @IsString()
+  @IsNotEmpty()
+  description_en: string;
+
   @IsNumber()
   @IsNotEmpty()
   time: number;
@@ -47,6 +55,14 @@ export class UpdateCookbookDto {
   @IsString()
   @IsNotEmpty()
   name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  name_en: string;
+
+  @IsString()
+  @IsNotEmpty()
+  description_en: string;
 
   @IsString()
   @IsNotEmpty()
@@ -86,6 +102,10 @@ export class CreateIngredientDto {
 
   @IsString()
   @IsNotEmpty()
+  name_en: string;
+
+  @IsString()
+  @IsNotEmpty()
   quantity: string;
 }
 
@@ -97,12 +117,20 @@ export class CreateStepDto {
   @IsString()
   @IsNotEmpty()
   description: string;
+
+  @IsString()
+  @IsNotEmpty()
+  description_en: string;
 }
 
 export class UpdateIngredientDto {
   @IsString()
   @IsNotEmpty()
   name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  name_en: string;
 
   @IsString()
   @IsNotEmpty()
@@ -117,4 +145,8 @@ export class UpdateStepDto {
   @IsString()
   @IsNotEmpty()
   description: string;
+
+  @IsString()
+  @IsNotEmpty()
+  description_en: string;
 }
