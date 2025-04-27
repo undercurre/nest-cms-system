@@ -40,10 +40,14 @@ export class Cookbook {
   @Column({ type: 'varchar', length: 50, nullable: true })
   taste: string | null; // 口味（如甜、辣等）
 
-  @OneToMany(() => Step, (step) => step.recipe, { cascade: true }) // 一对多关系
+  @OneToMany(() => Step, (step) => step.recipe, {
+    createForeignKeyConstraints: false,
+    cascade: true,
+  }) // 一对多关系
   steps: Step[]; // 步骤列表
 
   @OneToMany(() => Ingredient, (ingredient) => ingredient.recipe, {
+    createForeignKeyConstraints: false,
     cascade: true,
   }) // 一对多关系
   ingredients: Ingredient[]; // 食材列表
